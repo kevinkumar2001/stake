@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  web:
+    image: tomsik68/xampp
+    ports:
+      - "8080:80"
+    volumes:
+      - ./src:/www
+    environment:
+      MYSQL_HOST: msql
+      MYSQL_USER: RolexIsAdmin
+      MYSQL_PASSWORD: 9090@Rolex
+      MYSQL_DATABASE: 9090@Rolex
+
+  mysql:
+    image: mysql:5.7
+    volumes:
+      - mysql-data:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 9090@Rolex
+      MYSQL_DATABASE: rolex
+      MYSQL_USER: RolexIsAdmin
+      MYSQL_PASSWORD: 9090@Rolex
+
+volumes:
+  mysql-data:
